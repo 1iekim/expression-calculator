@@ -5,7 +5,7 @@ function eval() {
 
 function expressionCalculator(expr) {
    let val = new Function("return " + expr);
-   return val;
+   return val();
 }
 
 module.exports = {
