@@ -11,8 +11,8 @@ function expressionCalculator(expr) {
    }
    //let val = new Function("return " + expr);
    return count == 0 ? new Function("return " + expr)() :
-    expr.includes("/ 0") ? throw "TypeError: Division by zero." :
-    throw "ExpressionError: Brackets must be paired";
+    expr.includes("/ 0") ? "TypeError: Division by zero." :
+    "ExpressionError: Brackets must be paired";
 }
 
 module.exports = {
