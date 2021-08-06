@@ -10,7 +10,9 @@ function expressionCalculator(expr) {
     if(expr[i] == ")") count--;
    }
    //let val = new Function("return " + expr);
-   return count == 0 ? new Function("return " + expr)() : new Error("ExpressionError: Brackets must be paired");
+   return count == 0 ? new Function("return " + expr)() :
+    expr.includes("/ 0") ? throw "TypeError: Division by zero." :
+    throw "ExpressionError: Brackets must be paired";
 }
 
 module.exports = {
