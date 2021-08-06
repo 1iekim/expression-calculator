@@ -4,8 +4,13 @@ function eval() {
 }
 
 function expressionCalculator(expr) {
-   let val = new Function("return " + expr);
-   return val();
+   let count = 0;
+   for(let i = 0; i<expr.length; i++) {
+    if(expr[i] == "(") count++;
+    if(expr[i] == ")") count--;
+   }
+   //let val = new Function("return " + expr);
+   return count == 0 ? new Function("return " + expr) : "ExpressionError: Brackets must be paired";
 }
 
 module.exports = {
